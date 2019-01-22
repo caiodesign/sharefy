@@ -1,16 +1,19 @@
 import React from 'react'
-import Home from '../containers/Home'
-import { BrowserRouter as Router, Route } from "react-router-dom";
-
-const Routes = [
-  {path: '/', component: Home}
-]
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Routes from './routes'
 
 const drawRoutes = () => (
   <Router>
-    {Routes.map(item => (
-      <Route path={item.path} component={item.component}/>
-    ))}
+    <Switch>
+      {Routes.map(item => (
+        <Route
+          exact={item.exact}
+          key={item.path}
+          path={item.path && item.path}
+          component={item.component}
+        />
+      ))}
+    </Switch>
   </Router>
 )
 
