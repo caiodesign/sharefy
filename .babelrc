@@ -1,4 +1,37 @@
-// .babelrc
 {
-	"plugins": ["react-hot-loader/babel"]
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "loose": true,
+        "modules": false,
+        "shippedProposals": true
+      }
+    ],
+    "@babel/preset-react",
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "babel-plugin-styled-components",
+    "lodash",
+    "@babel/plugin-syntax-dynamic-import",
+    "react-hot-loader/babel",
+    "@babel/plugin-transform-runtime"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "lodash"
+      ],
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "shippedProposals": true
+          }
+        ]
+      ]
+    }
+  }
 }
